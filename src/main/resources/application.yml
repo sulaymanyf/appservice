@@ -1,0 +1,36 @@
+server:
+  port: 8800
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+
+spring:
+  resources:
+    static-locations: classpath:/static/
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/appservice?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2b8
+    username: root
+    password: 123456
+  redis:
+    database: 0
+    host: 172.16.6.116
+    jedis:
+      pool:
+        max-idle: 300
+        max-wait: 30s
+    port: 6379
+    password: vv-admin
+
+logging:
+  level: ALL
+  level.com.yeaile: debug
+  path: logs/
+  config:
+    classpath: logback.xml
+#    file: admin.log
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

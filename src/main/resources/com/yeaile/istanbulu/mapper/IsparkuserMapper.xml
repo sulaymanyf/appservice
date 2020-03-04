@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yeaile.appservice.istanbulu.mapper.IsparkuserMapper">
+
+  <!-- 通用查询映射结果 -->
+  <resultMap id="BaseResultMap" type="com.yeaile.appservice.istanbulu.entity.Isparkuser">
+    <id column="id" property="id"/>
+    <result column="user_name" property="userName"/>
+    <result column="email" property="email"/>
+    <result column="pass_word" property="passWord"/>
+    <result column="plaka" property="plaka"/>
+    <result column="home_addr" property="homeAddr"/>
+    <result column="office_addr" property="officeAddr"/>
+    <result column="pop_one" property="popOne"/>
+    <result column="pop_two" property="popTwo"/>
+    <result column="pop_three" property="popThree"/>
+    <result column="createtime" property="createTime"/>
+    <result column="updatetime" property="updateTime"/>
+    <result column="deleteflag" property="deleteFlag"/>
+  </resultMap>
+
+  <!-- 通用查询结果列 -->
+  <sql id="Base_Column_List">
+    id,
+ user_name, 
+ email, 
+ pass_word, 
+ plaka, 
+ home_addr, 
+ office_addr, 
+ pop_one, 
+ pop_two, 
+ pop_three, 
+ createtime, 
+ updatetime, 
+ deleteflag
+
+  </sql>
+  <select id="selectByEmail" resultType="com.yeaile.appservice.istanbulu.vo.IsparkuserVO">
+    select <include refid="Base_Column_List"/>
+    from isparkuser where email = #{email}
+  </select>
+</mapper>
